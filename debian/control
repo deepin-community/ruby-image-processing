@@ -1,0 +1,43 @@
+Source: ruby-image-processing
+Section: ruby
+Priority: optional
+Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Uploaders: Jongmin Kim <jmkim@pukyong.ac.kr>
+Build-Depends: debhelper-compat (= 12),
+               gem2deb,
+               imagemagick,
+               ruby-mini-magick (<< 5),
+               ruby-mini-magick (>= 4.9.3),
+               ruby-minispec-metadata,
+               ruby-minitest (<< 6),
+               ruby-minitest (>= 5.8),
+               ruby-minitest-hooks (>= 1.4.0),
+               ruby-vips (<< 3),
+               ruby-vips (>= 2.0.17)
+Standards-Version: 4.5.0
+Vcs-Git: https://salsa.debian.org/ruby-team/ruby-image-processing.git
+Vcs-Browser: https://salsa.debian.org/ruby-team/ruby-image-processing
+Homepage: https://github.com/janko/image_processing
+Testsuite: autopkgtest-pkg-ruby
+XS-Ruby-Versions: all
+Rules-Requires-Root: no
+
+Package: ruby-image-processing
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ruby | ruby-interpreter,
+         imagemagick,
+         ruby-mini-magick (<< 5),
+         ruby-mini-magick (>= 4.9.3),
+         ruby-vips (<< 3),
+         ruby-vips (>= 2.0.17),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Description: higher-level helper methods for image processing
+ This package provides higher-level image processing helpers that are
+ commonly needed when handling image uploads.
+ .
+ These are available image processing libraries:
+  * ImageMagick
+  * GraphicsMagick
+  * libvips

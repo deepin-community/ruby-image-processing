@@ -1,0 +1,45 @@
+Description: Exclude phashion from test suite
+ Phashion is needed while comparing two images during testing. However,
+ it was not packaged in Debian yet. This patch will exclude the phashion
+ from test suite.
+ .
+ Additionally, Phashion has some compatibility issue with Ruby packaged
+ in Debian.
+Bug: https://github.com/westonplatter/phashion/issues/74
+Author: Jongmin Kim <jmkim@pukyong.ac.kr>
+Forwarded: not-needed
+Last-Update: 2019-06-06
+--- a/image_processing.gemspec
++++ b/image_processing.gemspec
+@@ -23,5 +23,4 @@
+   spec.add_development_dependency "minitest", "~> 5.8"
+   spec.add_development_dependency "minitest-hooks", ">= 1.4.2"
+   spec.add_development_dependency "minispec-metadata"
+-  spec.add_development_dependency "phashion" unless RUBY_ENGINE == "jruby"
+ end
+--- a/test/test_helper.rb
++++ b/test/test_helper.rb
+@@ -8,7 +8,6 @@
+ 
+ ENV["VIPS_WARNING"] = "0" # disable libvips warnings
+ 
+-require "phashion" unless RUBY_ENGINE == "jruby"
+ require "vips"
+ require "mini_magick"
+ 
+@@ -25,13 +24,13 @@
+   end
+ 
+   def assert_similar(image1, image2)
+-    return if RUBY_ENGINE == "jruby" # Phashion has C extensions
++    return # Phashion has C extensions which is not in Debian yet
+ 
+     assert_operator distance(image1, image2), :<=, 4
+   end
+ 
+   def refute_similar(image1, image2)
+-    return if RUBY_ENGINE == "jruby" # Phashion has C extensions
++    return # Phashion has C extensions which is not in Debian yet
+ 
+     assert_operator distance(image1, image2), :>, 4
+   end
