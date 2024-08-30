@@ -1,3 +1,34 @@
+ruby-image-processing (1.10.3-3) unstable; urgency=medium
+
+  * Team Upload.
+  * Cherry-pick upstream commit to fix FTBFS (Closes: #1026498)
+
+ -- Nilesh Patra <nilesh@debian.org>  Fri, 23 Dec 2022 14:41:56 +0530
+
+ruby-image-processing (1.10.3-2) unstable; urgency=medium
+
+  [ Utkarsh Gupta ]
+  * Re-order d/p/series to match the previous order
+  * Refresh d/patches
+  * Add myself as the uploader instead.
+    - Jongmin Kim has been MIA, so drop them. Thank you
+      for your contributions, Jongmin Kim.
+
+  [ Daniel Leidert ]
+  * Team upload.
+  * d/control (Depends): Remove interpreter and add ${ruby:Depends}.
+  * d/copyright: Add Upstream-Contact field.
+  * d/rules: Add DH_RUBY to set gem installation layout.
+  * d/upstream/metadata: Add upstream metadata.
+
+  [ Rajesh Simandalahi ]
+  * d/p/prevent-remote-shell-execution-in-apply.patch: Add patch
+    to pevent remote shell execution in #apply. Thanks to Janko
+    Marohnić for providing the patch.
+    (Closes: #1007225) (Fixes: CVE-2022-24720)
+
+ -- Utkarsh Gupta <utkarsh@debian.org>  Wed, 08 Jun 2022 23:00:16 +0530
+
 ruby-image-processing (1.10.3-1) unstable; urgency=medium
 
   * Team upload

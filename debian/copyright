@@ -1,5 +1,6 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: image_processing
+Upstream-Contact: https://github.com/janko/image_processing/issues
 Source: https://github.com/janko/image_processing
 
 Files: *
