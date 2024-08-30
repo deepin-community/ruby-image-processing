@@ -1,2 +1,4 @@
 remove-bundler.patch
 exclude-phashion.patch
+prevent-remote-shell-execution-in-apply.patch
+account-err-msg.patch

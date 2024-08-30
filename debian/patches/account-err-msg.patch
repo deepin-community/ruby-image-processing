@@ -1,0 +1,20 @@
+From b2b91dff6a48fe91cb1c1550519f22d3ef2e7f49 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Janko=20Marohni=C4=87?= <janko.marohnic@gmail.com>
+Date: Sun, 26 Sep 2021 10:28:55 +0200
+Subject: [PATCH] Account for different error messages
+
+---
+ test/vips_test.rb | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+--- a/test/vips_test.rb
++++ b/test/vips_test.rb
+@@ -115,7 +115,7 @@
+ 
+   it "raises correct Vips::Error on unknown saver" do
+     error = assert_raises(Vips::Error) { ImageProcessing::Vips.convert("foo").call(@portrait) }
+-    assert_includes error.message, "No known saver"
++    assert_match /is not a known file format|No known saver for/, error.message
+   end
+ 
+   it "accepts :saver" do

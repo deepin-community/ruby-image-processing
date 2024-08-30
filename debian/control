@@ -1,8 +1,8 @@
 Source: ruby-image-processing
 Section: ruby
 Priority: optional
-Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
-Uploaders: Jongmin Kim <jmkim@pukyong.ac.kr>
+Maintainer: Debian Ruby Team <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Uploaders: Utkarsh Gupta <utkarsh@debian.org>
 Build-Depends: debhelper-compat (= 12),
                gem2deb,
                imagemagick,
@@ -25,13 +25,9 @@ Rules-Requires-Root: no
 Package: ruby-image-processing
 Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
-Depends: ruby | ruby-interpreter,
-         imagemagick,
-         ruby-mini-magick (<< 5),
-         ruby-mini-magick (>= 4.9.3),
-         ruby-vips (<< 3),
-         ruby-vips (>= 2.0.17),
+Depends: imagemagick,
          ${misc:Depends},
+         ${ruby:Depends},
          ${shlibs:Depends}
 Description: higher-level helper methods for image processing
  This package provides higher-level image processing helpers that are
